@@ -1,8 +1,27 @@
-import React from "react";
-import { fakeData as notes } from "../assets/fakeData";
+import React, { useEffect, useState } from "react";
+import { databases } from "../appwrite/config";
 import NoteCard from "../components/NoteCard";
 
 const NotesPage = () => {
+  const [notes, setNotes] = useState([]);
+
+  const fetchNotes = async () => {
+    try {
+      const response = await databases.listDocuments(
+        import.meta.env.VITE_DATABASE_ID,
+        import.meta.env.VITE_COLLECTION_NOTES_ID
+      );
+      setNotes(response.documents);
+      console.log(response);
+    } catch (error) {
+      console.error("Error fetching notes:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
+
   return (
     <>
       <div className="Notes">
