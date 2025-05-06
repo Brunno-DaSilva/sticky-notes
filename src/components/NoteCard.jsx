@@ -1,12 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import Trash from "../icons/Trash";
-import { setNewOffset, autoGrow, setZIndex } from "../utils/utils";
+import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils/utils";
 
 const NoteCard = ({ note }) => {
   const textAreaRef = useRef(null);
   const cardRef = useRef(null);
   let mouseInitialPosition = { x: 0, y: 0 };
-  const body = JSON.parse(note.body);
+  const body = bodyParser(note.body);
   const [position, setPosition] = useState(JSON.parse(note.position));
   const colors = JSON.parse(note.colors);
 
@@ -55,7 +55,7 @@ const NoteCard = ({ note }) => {
         style={{ backgroundColor: colors.colorHeader }}
         onMouseDown={mouseDown}
       >
-        <Trash /> Header Hard Code
+        <Trash /> <span className="card-header__title">Header Hard Code</span>
       </div>
 
       <div className="card-body">

@@ -43,6 +43,11 @@ body {
   align-items: center;
   padding: 5px;
 }
+.card-header__title {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #212228;
+}
 
 .card-body {
   padding: 1em;
