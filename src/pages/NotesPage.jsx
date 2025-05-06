@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { databases } from "../appwrite/config";
+import { db } from "../appwrite/databases";
 import NoteCard from "../components/NoteCard";
 
 const NotesPage = () => {
@@ -7,10 +7,7 @@ const NotesPage = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await databases.listDocuments(
-        import.meta.env.VITE_DATABASE_ID,
-        import.meta.env.VITE_COLLECTION_NOTES_ID
-      );
+      const response = await db.notes.list();
       setNotes(response.documents);
     } catch (error) {
       console.error("Error fetching notes:", error);
