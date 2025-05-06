@@ -12,7 +12,6 @@ const NotesPage = () => {
         import.meta.env.VITE_COLLECTION_NOTES_ID
       );
       setNotes(response.documents);
-      console.log(response);
     } catch (error) {
       console.error("Error fetching notes:", error);
     }
