@@ -1,17 +1,40 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Trash from "../icons/Trash";
+import { setNewOffset, autoGrow } from "../utils/utils";
 
 const NoteCard = ({ note }) => {
   const textAreaRef = useRef(null);
+  const cardRef = useRef(null);
+  let mouseInitialPosition = { x: 0, y: 0 };
   const body = JSON.parse(note.body);
-  let position = JSON.parse(note.position);
+  const [position, setPosition] = useState(JSON.parse(note.position));
   const colors = JSON.parse(note.colors);
 
-  function autoGrow(textAreaRef) {
-    const { current } = textAreaRef;
-    current.style.height = "auto"; // Reset the height
-    current.style.height = current.scrollHeight + "px"; // Set the new height
-  }
+  const mouseDown = (e) => {
+    mouseInitialPosition.x = e.clientX;
+    mouseInitialPosition.y = e.clientY;
+
+    document.addEventListener("mousemove", mouseMove);
+    document.addEventListener("mouseup", mouseUp);
+  };
+  const mouseMove = (e) => {
+    let mouseMoveDir = {
+      x: mouseInitialPosition.x - e.clientX,
+      y: mouseInitialPosition.y - e.clientY,
+    };
+
+    mouseInitialPosition.x = e.clientX;
+    mouseInitialPosition.y = e.clientY;
+
+    const positionWithBoundaries = setNewOffset(cardRef.current, mouseMoveDir);
+    setPosition(positionWithBoundaries);
+  };
+
+  const mouseUp = () => {
+    document.removeEventListener("mousemove", mouseMove);
+    document.removeEventListener("mouseup", mouseUp);
+  };
+
   useEffect(() => {
     autoGrow(textAreaRef);
   }, []);
@@ -24,10 +47,12 @@ const NoteCard = ({ note }) => {
         left: `${position.x}px`,
         top: `${position.y}px`,
       }}
+      ref={cardRef}
     >
       <div
         className="card-header"
         style={{ backgroundColor: colors.colorHeader }}
+        onMouseDown={mouseDown}
       >
         <Trash /> Header Hard Code
       </div>
