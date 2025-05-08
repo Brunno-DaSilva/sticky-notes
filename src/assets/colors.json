@@ -1,0 +1,50 @@
+[
+    {
+        "id": "color-yellow",
+        "colorHeader": "#FFEFBE",
+        "colorBody": "#FFF5DF",
+        "colorText": "#18181A"
+    },
+    {
+        "id": "color-green",
+        "colorHeader": "#AFDA9F",
+        "colorBody": "#BCDEAF",
+        "colorText": "#18181A"
+    },
+    {
+        "id": "color-blue",
+        "colorHeader": "#9BD1DE",
+        "colorBody": "#A6DCE9",
+        "colorText": "#18181A"
+    },
+    {
+        "id": "color-purple",
+        "colorHeader": "#FED0FD",
+        "colorBody": "#FEE5FD",
+        "colorText": "#18181A"
+    },
+    {
+        "id": "color-orange",
+        "colorHeader": "#FFD6B3",
+        "colorBody": "#FFE5CC",
+        "colorText": "#18181A"
+    },
+    {
+        "id": "color-pink",
+        "colorHeader": "#FFB6C1",
+        "colorBody": "#FFD6DE",
+        "colorText": "#18181A"
+    },
+    {
+        "id": "color-mint",
+        "colorHeader": "#B2F0E3",
+        "colorBody": "#C8F5ED",
+        "colorText": "#18181A"
+    },
+    {
+        "id": "color-gray",
+        "colorHeader": "#D3D3D3",
+        "colorBody": "#E9E9E9",
+        "colorText": "#18181A"
+    }
+]
