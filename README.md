@@ -74,7 +74,7 @@ This project is open-source and available under the MIT License.
 
 ---
 
-<div style="background-color: #e0f7ff; padding: 1em; border-radius: 5px;">
+<div style="background-color:#e0f7ff; padding: 1em; border-radius: 5px;">
   <strong>Made with ❤️ by Brunno Da Silva</strong><br>
   "Sticky notes: where good ideas live next to questionable doodles."
 </div>

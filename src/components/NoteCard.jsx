@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from "react";
 import { db } from "../appwrite/databases";
 import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils/utils";
-import Trash from "../icons/Trash";
+import DeleteButton from "./DeleteButton";
 import Spinner from "../icons/spinner";
 
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note, setNotes }) => {
   const [position, setPosition] = useState(JSON.parse(note.position));
   const [saving, setSaving] = useState(false);
   const textAreaRef = useRef(null);
@@ -15,13 +15,16 @@ const NoteCard = ({ note }) => {
   let mouseInitialPosition = { x: 0, y: 0 };
 
   const mouseDown = (e) => {
-    mouseInitialPosition.x = e.clientX;
-    mouseInitialPosition.y = e.clientY;
+    if (e.target.className === "card-header") {
+      setZIndex(cardRef.current);
+      mouseInitialPosition.x = e.clientX;
+      mouseInitialPosition.y = e.clientY;
 
-    document.addEventListener("mousemove", mouseMove);
-    document.addEventListener("mouseup", mouseUp);
-    setZIndex(cardRef.current);
+      document.addEventListener("mousemove", mouseMove);
+      document.addEventListener("mouseup", mouseUp);
+    }
   };
+
   const mouseMove = (e) => {
     let mouseMoveDir = {
       x: mouseInitialPosition.x - e.clientX,
@@ -84,7 +87,8 @@ const NoteCard = ({ note }) => {
         style={{ backgroundColor: colors.colorHeader }}
         onMouseDown={mouseDown}
       >
-        <Trash /> <span className="card-header__title">Header Hard Code</span>
+        <DeleteButton noteId={note.$id} setNotes={setNotes} />
+
         {saving && (
           <div className="card-saving">
             <Spinner color={colors.colorText} size={16} />
