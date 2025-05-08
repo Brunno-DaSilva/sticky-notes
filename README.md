@@ -22,7 +22,7 @@ A simple and fun sticky notes web app built with Vite, React, and Tailwind CSS. 
 
 - Tailwind CSS
 
-- WriteApp
+- AppWrite
 
 ## 📸 Preview
 
