@@ -1,13 +1,80 @@
-# React + Vite
+# Sticky Notes 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and fun sticky notes web app built with Vite, React, and Tailwind CSS. Create, move, and delete notes in a colorful interface—your digital corkboard for reminders, ideas, or random doodles.
 
-Currently, two official plugins are available:
+✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📝 Create custom sticky notes
 
-## Expanding the ESLint configuration
+🎨 Randomized colors for visual variety
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# sticky-notes
+📦 Persist notes using local storage
+
+🖱️ Drag-and-drop positioning
+
+🧽 Delete notes individually
+
+## 🚀 Tech Stack
+
+- React
+
+- Vite
+
+- Tailwind CSS
+
+- WriteApp
+
+## 📸 Preview
+
+## 🛠️ Getting Started
+
+Clone the repository and run the app locally:
+
+```
+git clone https://github.com/Brunno-DaSilva/sticky-notes.git
+cd sticky-notes
+npm install
+npm run dev
+```
+
+Then open http://localhost:5173 in your browser.
+
+## 📁 Project Structure
+
+```
+sticky-notes/
+├── public/ # Static assets
+├── src/
+│ ├── components/ # Reusable React components
+│ ├── App.jsx # Root component
+│ └── main.jsx # Entry point
+├── .gitignore
+├── index.html
+├── package.json
+└── tailwind.config.js
+```
+
+## 🙌 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a pull request.
+
+1. Fork this repository
+
+2. Create a new branch (git checkout -b feature/your-feature)
+
+3. Commit your changes (git commit -m 'Add your feature')
+
+4. Push to the branch (git push origin feature/your-feature)
+
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+<div style="background-color: #e0f7ff; padding: 1em; border-radius: 5px;">
+  <strong>Made with ❤️ by Brunno Da Silva</strong><br>
+  "Sticky notes: where good ideas live next to questionable doodles."
+</div>
