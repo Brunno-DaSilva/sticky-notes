@@ -2,9 +2,9 @@ import { useRef, useEffect, useState } from "react";
 import { db } from "../appwrite/databases";
 import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils/utils";
 import DeleteButton from "./DeleteButton";
-import Spinner from "../icons/spinner";
+import Spinner from "../icons/Spinner";
 
-const NoteCard = ({ note, setNotes }) => {
+const NoteCard = ({ note }) => {
   const [position, setPosition] = useState(JSON.parse(note.position));
   const [saving, setSaving] = useState(false);
   const textAreaRef = useRef(null);
@@ -87,7 +87,7 @@ const NoteCard = ({ note, setNotes }) => {
         style={{ backgroundColor: colors.colorHeader }}
         onMouseDown={mouseDown}
       >
-        <DeleteButton noteId={note.$id} setNotes={setNotes} />
+        <DeleteButton noteId={note.$id} />
 
         {saving && (
           <div className="card-saving">

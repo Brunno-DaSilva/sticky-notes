@@ -1,28 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { db } from "../appwrite/databases";
+import { useContext } from "react";
+import { NoteContext } from "../context/NoteContext";
 import NoteCard from "../components/NoteCard";
 
 const NotesPage = () => {
-  const [notes, setNotes] = useState([]);
-
-  const fetchNotes = async () => {
-    try {
-      const response = await db.notes.list();
-      setNotes(response.documents);
-    } catch (error) {
-      console.error("Error fetching notes:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchNotes();
-  }, []);
-
+  const { notes } = useContext(NoteContext);
   return (
     <>
       <div className="Notes">
         {notes.map((note) => (
-          <NoteCard note={note} key={note.$id} setNotes={setNotes} />
+          <NoteCard note={note} key={note.$id} />
         ))}
       </div>
     </>
